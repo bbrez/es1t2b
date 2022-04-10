@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Cliente {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idCliente;
     private String nomeCliente;
-    private String cpfCliente;
+    private @Column(unique = true) String cpfCliente;
     private Integer numCasaCliente;
     private String complementoCasaCliente;
 
