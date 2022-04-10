@@ -2,16 +2,13 @@ package com.es1.api.modelo;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @Entity
 public class ItemProduto {
-    private @Id @GeneratedValue Integer idItemProduto;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idItemProduto;
     private Integer quantidadeProduto;
-    private @ManyToOne OrdemDeServico ordemDeServico;
-    private @ManyToOne Produto produto;
+    private @ManyToOne(cascade = CascadeType.ALL) OrdemDeServico ordemDeServico;
+    private @ManyToOne(cascade = CascadeType.ALL) Produto produto;
 }

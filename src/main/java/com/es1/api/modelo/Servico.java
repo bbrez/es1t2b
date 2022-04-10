@@ -2,16 +2,13 @@ package com.es1.api.modelo;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Data
 public class Servico {
-    private @Id @GeneratedValue Integer idServicos;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idServicos;
     private Float valorMaoDeObra;
-    private @ManyToOne TipoServico tipoServico;
-    private @ManyToOne OrdemDeServico ordemDeServico;
+    private @ManyToOne(cascade = CascadeType.ALL) TipoServico tipoServico;
+    private @ManyToOne(cascade = CascadeType.ALL) OrdemDeServico ordemDeServico;
 }

@@ -3,7 +3,6 @@ package com.es1.api.controlador;
 import com.es1.api.modelo.Marca;
 import com.es1.api.repositorio.MarcaRepositorio;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 

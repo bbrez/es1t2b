@@ -2,15 +2,14 @@ package com.es1.api.modelo;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @Entity
 public class Email {
-    private @Id @GeneratedValue Integer idEmail;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idEmail;
     private String email;
-    private @ManyToOne Cliente cliente;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Cliente cliente;
 }

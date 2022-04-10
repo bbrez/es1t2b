@@ -30,7 +30,7 @@ public class CidadeControlador {
         return repositorio.findById(id).orElseThrow();
     }
 
-    @PutMapping("/veiculo/{id}")
+    @PutMapping("/cidade/{id}")
     Cidade substituirCidade(@RequestBody Cidade novaCidade, @PathVariable Integer id) {
         return repositorio.findById(id)
                 .map(cidade -> {

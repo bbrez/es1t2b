@@ -1,21 +1,18 @@
 package com.es1.api.modelo;
 
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @Entity
 public class Cliente {
-    private @Id @GeneratedValue Integer idCliente;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idCliente;
     private String nomeCliente;
     private String cpfCliente;
     private Integer numCasaCliente;
     private String complementoCasaCliente;
 
-    @ManyToOne
-    Endereco endereco;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
 }

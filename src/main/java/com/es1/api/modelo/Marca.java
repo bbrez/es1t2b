@@ -1,16 +1,15 @@
 package com.es1.api.modelo;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Objects;
 
 @Data
 @Entity
 public class Marca {
-    private @Id @GeneratedValue Integer idMarca;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idMarca;
     private String nomeMarca;
 }
