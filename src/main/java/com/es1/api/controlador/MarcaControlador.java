@@ -25,8 +25,9 @@ public class MarcaControlador {
         return repositorio.save(novaMarca);
     }
 
+    //Marca Individual
     @GetMapping("/marca/{id}")
-    Marca uma(@PathVariable Integer id){
+    Marca um(@PathVariable Integer id){
         return repositorio.findById(id).orElseThrow();
     }
 
@@ -42,8 +43,8 @@ public class MarcaControlador {
                 });
     }
 
-    @DeleteMapping("/employees/{id}")
-    void deleteEmployee(@PathVariable Integer id){
+    @DeleteMapping("/marca/{id}")
+    void deletarMarca(@PathVariable Integer id){
         repositorio.deleteById(id);
     }
 }
