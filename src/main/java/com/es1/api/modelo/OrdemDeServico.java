@@ -12,4 +12,5 @@ public class OrdemDeServico {
     private Date dataOrdemServico;
     private @ManyToOne(cascade = CascadeType.ALL) Cliente cliente;
     private @ManyToOne(cascade = CascadeType.ALL) Veiculo veiculo;
+    private @ManyToOne(cascade = CascadeType.ALL) EstadoOS estado;
 }
