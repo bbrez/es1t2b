@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 public class Endereco {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idEndereco;
-    private String CEP;
+    private @Column(unique = true, nullable = false) String CEP;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Cidade cidade;

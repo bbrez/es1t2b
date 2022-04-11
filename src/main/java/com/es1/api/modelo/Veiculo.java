@@ -8,9 +8,9 @@ import javax.persistence.*;
 @Entity
 public class Veiculo {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idVeiculo;
-    private String nomeVeiculo;
-    private String placa;
-    private String modelo;
-    private Integer kmVeiculo;
+    private @Column(nullable = false) String nomeVeiculo;
+    private @Column(nullable = false) String placa;
+    private @Column(nullable = false) String modelo;
+    private @Column(nullable = false) Integer kmVeiculo;
     private @ManyToOne(cascade = CascadeType.ALL) Marca marca;
 }

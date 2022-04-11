@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Entity
 public class Cidade {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idCidade;
-    private String nomeCidade;
+    private @Column(nullable = false) String nomeCidade;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private UnidadeFederativa unidadeFederativa;
 }

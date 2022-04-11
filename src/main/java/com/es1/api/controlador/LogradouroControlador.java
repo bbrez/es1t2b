@@ -35,7 +35,6 @@ public class LogradouroControlador {
         return repositorio.findById(id)
                 .map(logradouro -> {
                     logradouro.setNomeLogradouro(novoLogradouro.getNomeLogradouro());
-                    logradouro.setTipoLogradouro(novoLogradouro.getTipoLogradouro());
                     return repositorio.save(logradouro);
                 }).orElseGet(() -> {
                     novoLogradouro.setIdLogradouro(id);
