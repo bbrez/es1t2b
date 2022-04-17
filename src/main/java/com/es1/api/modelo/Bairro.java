@@ -2,14 +2,11 @@ package com.es1.api.modelo;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
 public class Bairro {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idBairro;
-    private String nomeBairro;
+    private @Column(nullable = false) String nomeBairro;
 }

@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Entity
 public class Telefone {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idTelefone;
-    private String numeroTelefone;
-    private @ManyToOne(cascade = CascadeType.MERGE) DDI ddi;
-    private @ManyToOne(cascade = CascadeType.MERGE) DDD ddd;
-    private @ManyToOne(cascade = CascadeType.MERGE) Cliente cliente;
+    private @Column(nullable = false) String numeroTelefone;
+    private @ManyToOne(cascade = CascadeType.ALL) DDI ddi;
+    private @ManyToOne(cascade = CascadeType.ALL) DDD ddd;
+    private @ManyToOne(cascade = CascadeType.ALL) Cliente cliente;
 }

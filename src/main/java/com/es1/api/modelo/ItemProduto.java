@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 public class ItemProduto {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idItemProduto;
-    private Integer quantidadeProduto;
-    private @ManyToOne(cascade = CascadeType.MERGE) OrdemDeServico ordemDeServico;
-    private @ManyToOne(cascade = CascadeType.MERGE) Produto produto;
+    private @Column(nullable = false) Integer quantidadeProduto;
+    private @ManyToOne(cascade = CascadeType.ALL) OrdemDeServico ordemDeServico;
+    private @ManyToOne(cascade = CascadeType.ALL) Produto produto;
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 public class Email {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idEmail;
-    private String email;
+    private @Column(nullable = false) String email;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     private Cliente cliente;

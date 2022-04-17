@@ -8,8 +8,5 @@ import javax.persistence.*;
 @Entity
 public class Logradouro {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idLogradouro;
-    private String nomeLogradouro;
-
-    @ManyToOne(cascade = CascadeType.MERGE)
-    private TipoLogradouro tipoLogradouro;
+    private @Column(nullable = false) String nomeLogradouro;
 }
