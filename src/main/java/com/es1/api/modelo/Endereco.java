@@ -10,12 +10,12 @@ public class Endereco {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idEndereco;
     private String CEP;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Cidade cidade;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Bairro bairro;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Logradouro logradouro;
 }

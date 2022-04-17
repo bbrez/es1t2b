@@ -13,6 +13,6 @@ public class Cliente {
     private Integer numCasaCliente;
     private String complementoCasaCliente;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Endereco endereco;
 }

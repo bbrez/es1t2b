@@ -10,6 +10,6 @@ public class Logradouro {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idLogradouro;
     private String nomeLogradouro;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private TipoLogradouro tipoLogradouro;
 }

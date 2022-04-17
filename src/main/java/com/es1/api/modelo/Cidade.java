@@ -10,6 +10,6 @@ public class Cidade {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idCidade;
     private String nomeCidade;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private UnidadeFederativa unidadeFederativa;
 }

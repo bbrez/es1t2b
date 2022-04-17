@@ -10,6 +10,6 @@ public class Email {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idEmail;
     private String email;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Cliente cliente;
 }
