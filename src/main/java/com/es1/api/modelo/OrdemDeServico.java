@@ -10,7 +10,7 @@ import java.sql.Date;
 public class OrdemDeServico {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer nroOrdemDeServico;
     private Date dataOrdemServico;
-    private @ManyToOne(cascade = CascadeType.ALL) Cliente cliente;
-    private @ManyToOne(cascade = CascadeType.ALL) Veiculo veiculo;
-    private @ManyToOne(cascade = CascadeType.ALL) EstadoOS estado;
+    private @ManyToOne(cascade = CascadeType.MERGE) Cliente cliente;
+    private @ManyToOne(cascade = CascadeType.MERGE) Veiculo veiculo;
+    private @ManyToOne(cascade = CascadeType.MERGE) EstadoOS estado;
 }

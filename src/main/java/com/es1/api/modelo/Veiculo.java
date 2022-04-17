@@ -12,5 +12,5 @@ public class Veiculo {
     private @Column(nullable = false) String placa;
     private @Column(nullable = false) String modelo;
     private @Column(nullable = false) Integer kmVeiculo;
-    private @ManyToOne(cascade = CascadeType.ALL) Marca marca;
+    private @ManyToOne(cascade = CascadeType.MERGE) Marca marca;
 }
