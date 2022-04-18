@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface OrdemDeServicoRepositorio extends JpaRepository<OrdemDeServico, Integer> {
+    List<OrdemDeServico> findByCliente_CpfClienteAndEstado_NomeEstado(String cpfCliente, String nomeEstado);
     List<OrdemDeServico> findByCliente_IdCliente(Integer idCliente);
 
     List<OrdemDeServico> findByCliente_CpfCliente(String cpfCliente);
