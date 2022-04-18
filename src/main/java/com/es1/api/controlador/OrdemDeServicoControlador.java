@@ -32,6 +32,11 @@ public class OrdemDeServicoControlador {
         return repositorio.findByCliente_CpfCliente(cpf);
     }
 
+    @GetMapping("/ordem_servico/por_estado/{nomeEstado}")
+    List<OrdemDeServico> porEstado(@PathVariable String nomeEstado){
+        return repositorio.findByEstado_NomeEstado(nomeEstado);
+    }
+
     @PostMapping("/ordem_servico")
     OrdemDeServico novaOrdemDeServico(@RequestBody OrdemDeServico novaOrdemDeServico){
         return repositorio.save(novaOrdemDeServico);

@@ -10,4 +10,8 @@ public interface OrdemDeServicoRepositorio extends JpaRepository<OrdemDeServico,
 
     List<OrdemDeServico> findByCliente_CpfCliente(String cpfCliente);
 
+    List<OrdemDeServico> findByEstado_NomeEstado(String nomeEstado);
+
+
+
 }
