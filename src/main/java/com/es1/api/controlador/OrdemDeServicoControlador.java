@@ -22,9 +22,14 @@ public class OrdemDeServicoControlador {
         return repositorio.findAll();
     }
 
-    @GetMapping("/ordem_servico/por_cliente/{idCliente}")
+    @GetMapping("/ordem_servico/por_id_cliente/{idCliente}")
     List<OrdemDeServico> porIDCliente(@PathVariable Integer idCliente){
         return repositorio.findByCliente_IdCliente(idCliente);
+    }
+
+    @GetMapping("/ordem_servico/por_cpf_cliente/{cpf}")
+    List<OrdemDeServico> porCPFCliente(@PathVariable String cpf){
+        return repositorio.findByCliente_CpfCliente(cpf);
     }
 
     @PostMapping("/ordem_servico")
