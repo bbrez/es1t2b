@@ -8,5 +8,5 @@ import javax.persistence.*;
 @Entity
 public class UnidadeFederativa {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idUnidadeFederativa;
-    private @Column(nullable = false) String nomeUnidadeFederativa;
+    private @Column(nullable = false, unique = true) String nomeUnidadeFederativa;
 }
