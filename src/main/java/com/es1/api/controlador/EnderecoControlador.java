@@ -20,7 +20,8 @@ public class EnderecoControlador {
     }
 
     @PostMapping("/endereco")
-    Endereco um(@RequestBody Endereco novoEndereco) {
+    Endereco novo(@RequestBody Endereco novoEndereco) {
+        System.out.println(novoEndereco.toString());
         return repositorio.save(novoEndereco);
     }
 
@@ -31,7 +32,7 @@ public class EnderecoControlador {
     }
 
     @PutMapping("/endereco/{id}")
-    Endereco substituirEndereco(@RequestBody Endereco novoEndereco, @PathVariable Integer id) {
+    Endereco substituir(@RequestBody Endereco novoEndereco, @PathVariable Integer id) {
         return repositorio.findById(id)
                 .map(endereco -> {
                     endereco.setBairro(novoEndereco.getBairro());
@@ -46,7 +47,7 @@ public class EnderecoControlador {
     }
 
     @DeleteMapping("/endereco/{id}")
-    void deletarEndereco(@PathVariable Integer id){
+    void deletar(@PathVariable Integer id){
         repositorio.deleteById(id);
     }
 }

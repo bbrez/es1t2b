@@ -35,7 +35,7 @@ public class ServicoControlador {
         return repositorio.findById(id)
                 .map(servico -> {
                     servico.setValorMaoDeObra(novoServico.getValorMaoDeObra());
-                    servico.setTipoServico(novoServico.getTipoServico());
+                    servico.setNomeServico(novoServico.getNomeServico());
                     servico.setOrdemDeServico(novoServico.getOrdemDeServico());
                     return repositorio.save(servico);
                 }).orElseGet(() -> {

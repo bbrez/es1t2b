@@ -19,8 +19,13 @@ public class CidadeControlador {
         return repositorio.findAll();
     }
 
+    @GetMapping("/cidade/por_nome/{nome}")
+    List<Cidade> por_nome(@PathVariable String nome){
+        return repositorio.findByNomeCidade(nome);
+    }
+
     @PostMapping("/cidade")
-    Cidade novaCidade(@RequestBody Cidade novaCidade) {
+    Cidade novo(@RequestBody Cidade novaCidade) {
         return repositorio.save(novaCidade);
     }
 
@@ -31,7 +36,7 @@ public class CidadeControlador {
     }
 
     @PutMapping("/cidade/{id}")
-    Cidade substituirCidade(@RequestBody Cidade novaCidade, @PathVariable Integer id) {
+    Cidade substituir(@RequestBody Cidade novaCidade, @PathVariable Integer id) {
         return repositorio.findById(id)
                 .map(cidade -> {
                     cidade.setNomeCidade(novaCidade.getNomeCidade());
@@ -44,7 +49,7 @@ public class CidadeControlador {
     }
 
     @DeleteMapping("/cidade/{id}")
-    void deletarCidade(@PathVariable Integer id) {
+    void deletar(@PathVariable Integer id) {
         repositorio.deleteById(id);
     }
 }

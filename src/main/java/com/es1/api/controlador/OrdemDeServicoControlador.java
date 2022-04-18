@@ -22,6 +22,11 @@ public class OrdemDeServicoControlador {
         return repositorio.findAll();
     }
 
+    @GetMapping("/ordem_servico/por_cliente/{idCliente}")
+    List<OrdemDeServico> porIDCliente(@PathVariable Integer idCliente){
+        return repositorio.findByCliente_IdCliente(idCliente);
+    }
+
     @PostMapping("/ordem_servico")
     OrdemDeServico novaOrdemDeServico(@RequestBody OrdemDeServico novaOrdemDeServico){
         return repositorio.save(novaOrdemDeServico);

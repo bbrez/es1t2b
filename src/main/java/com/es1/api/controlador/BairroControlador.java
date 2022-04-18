@@ -19,18 +19,23 @@ public class BairroControlador {
         return repositorio.findAll();
     }
 
+    @GetMapping("/bairro/por_nome/{nome}")
+    List<Bairro> por_nome(@PathVariable String nome){
+        return repositorio.findByNomeBairro(nome);
+    }
+
     @PostMapping("/bairro")
-    Bairro novoBairro(@RequestBody Bairro novoBairro) {
+    Bairro novo(@RequestBody Bairro novoBairro) {
         return repositorio.save(novoBairro);
     }
 
     @GetMapping("/bairro/{id}")
-    Bairro umBairro(@PathVariable Integer id) {
+    Bairro um(@PathVariable Integer id) {
         return repositorio.findById(id).orElseThrow();
     }
 
     @PutMapping("/bairro/{id}")
-    Bairro substituirBairro(@RequestBody Bairro novoBairro, @PathVariable Integer id) {
+    Bairro substituir(@RequestBody Bairro novoBairro, @PathVariable Integer id) {
         return repositorio.findById(id)
                 .map(bairro -> {
                     bairro.setNomeBairro(novoBairro.getNomeBairro());
@@ -42,5 +47,5 @@ public class BairroControlador {
     }
 
     @DeleteMapping("/bairro/{id}")
-    void deletarBairro(@PathVariable Integer id) { repositorio.deleteById(id); }
+    void deletar(@PathVariable Integer id) { repositorio.deleteById(id); }
 }

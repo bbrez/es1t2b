@@ -19,8 +19,13 @@ public class ClienteControlador {
         return repositorio.findAll();
     }
 
+    @GetMapping("/cliente/por_cpf/{cpf}")
+    Cliente por_cpf(@PathVariable String cpf){
+        return repositorio.findByCpfCliente(cpf);
+    }
+
     @PostMapping("/cliente")
-    Cliente novoCliente(@RequestBody Cliente novoCliente) {
+    Cliente novo(@RequestBody Cliente novoCliente) {
         return repositorio.save(novoCliente);
     }
 
@@ -31,7 +36,7 @@ public class ClienteControlador {
     }
 
     @PutMapping("/cliente/{id}")
-    Cliente substituirCliente(@RequestBody Cliente novoCliente, @PathVariable Integer id) {
+    Cliente substituir(@RequestBody Cliente novoCliente, @PathVariable Integer id) {
         return repositorio.findById(id)
                 .map(cliente -> {
                     cliente.setNomeCliente(novoCliente.getNomeCliente());
@@ -47,7 +52,7 @@ public class ClienteControlador {
     }
 
     @DeleteMapping("/cliente/{id}")
-    void deletarCliente(@PathVariable Integer id){
+    void deletar(@PathVariable Integer id){
         repositorio.deleteById(id);
     }
 }

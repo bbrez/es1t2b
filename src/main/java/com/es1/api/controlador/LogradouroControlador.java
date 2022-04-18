@@ -20,7 +20,7 @@ public class LogradouroControlador {
     }
 
     @PostMapping("/logradouro")
-    Logradouro novoLogradouro(@RequestBody Logradouro novoLogradouro) {
+    Logradouro novo(@RequestBody Logradouro novoLogradouro) {
         return repositorio.save(novoLogradouro);
     }
 
@@ -31,7 +31,7 @@ public class LogradouroControlador {
     }
 
     @PutMapping("/logradouro/{id}")
-    Logradouro substituirLogradouro(@RequestBody Logradouro novoLogradouro, @PathVariable Integer id){
+    Logradouro substituir(@RequestBody Logradouro novoLogradouro, @PathVariable Integer id){
         return repositorio.findById(id)
                 .map(logradouro -> {
                     logradouro.setNomeLogradouro(novoLogradouro.getNomeLogradouro());
@@ -43,7 +43,7 @@ public class LogradouroControlador {
     }
 
     @DeleteMapping("/logradouro/{id}")
-    void deletarLogradouro(@PathVariable Integer id){
+    void deletar(@PathVariable Integer id){
         repositorio.deleteById(id);
     }
 }

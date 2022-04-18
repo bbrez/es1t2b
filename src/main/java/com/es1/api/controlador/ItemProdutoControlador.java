@@ -20,7 +20,7 @@ public class ItemProdutoControlador {
     }
 
     @PostMapping("/item_produto")
-    ItemProduto novoItemProduto(@RequestBody ItemProduto novoItemProduto) {
+    ItemProduto novo(@RequestBody ItemProduto novoItemProduto) {
         return repositorio.save(novoItemProduto);
     }
 
@@ -31,7 +31,7 @@ public class ItemProdutoControlador {
     }
 
     @PutMapping("/item_produto/{id}")
-    ItemProduto substituirItemProduto(@RequestBody ItemProduto novoItemProduto, @PathVariable Integer id) {
+    ItemProduto substituir(@RequestBody ItemProduto novoItemProduto, @PathVariable Integer id) {
         return repositorio.findById(id)
                 .map(itemProduto -> {
                     itemProduto.setQuantidadeProduto(novoItemProduto.getQuantidadeProduto());
@@ -45,7 +45,7 @@ public class ItemProdutoControlador {
     }
 
     @DeleteMapping("/item_produto/{id}")
-    void deletarItemProduto(@PathVariable Integer id){
+    void deletar(@PathVariable Integer id){
         repositorio.deleteById(id);
     }
 }

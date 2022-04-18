@@ -9,6 +9,6 @@ import javax.persistence.*;
 public class Servico {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idServicos;
     private @Column(nullable = false) Float valorMaoDeObra;
-    private @ManyToOne(cascade = CascadeType.MERGE) TipoServico tipoServico;
+    private @Column(nullable = false) String nomeServico;
     private @ManyToOne(cascade = CascadeType.MERGE) OrdemDeServico ordemDeServico;
 }

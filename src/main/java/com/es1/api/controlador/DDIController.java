@@ -20,7 +20,7 @@ public class DDIController {
     }
 
     @PostMapping("/ddi")
-    DDI novoDDI(@RequestBody DDI novoDDI){
+    DDI novo(@RequestBody DDI novoDDI){
         return repositorio.save(novoDDI);
     }
 
@@ -31,7 +31,7 @@ public class DDIController {
     }
 
     @PutMapping("/ddi/{id}")
-    DDI substituirDDI(@RequestBody DDI novoDDI, @PathVariable Integer id){
+    DDI substituir(@RequestBody DDI novoDDI, @PathVariable Integer id){
         return repositorio.findById(id)
                 .map(ddi -> {
                     ddi.setNumeroDDI(novoDDI.getNumeroDDI());
@@ -43,7 +43,7 @@ public class DDIController {
     }
 
     @DeleteMapping("/ddi/{id}")
-    void deletarDDI(@PathVariable Integer id){
+    void deletar(@PathVariable Integer id){
         repositorio.deleteById(id);
     }
 }

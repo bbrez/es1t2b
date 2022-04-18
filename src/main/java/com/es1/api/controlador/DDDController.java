@@ -20,7 +20,7 @@ public class DDDController {
     }
 
     @PostMapping("/ddd")
-    DDD novoDDD(@RequestBody DDD novoDDD){
+    DDD novo(@RequestBody DDD novoDDD){
         return repositorio.save(novoDDD);
     }
 
@@ -31,7 +31,7 @@ public class DDDController {
     }
 
     @PutMapping("/ddd/{id}")
-    DDD substituirDDD(@RequestBody DDD novoDDD, @PathVariable Integer id){
+    DDD substituir(@RequestBody DDD novoDDD, @PathVariable Integer id){
         return repositorio.findById(id)
                 .map(ddd -> {
                     ddd.setNumeroDDD(novoDDD.getNumeroDDD());
@@ -43,7 +43,7 @@ public class DDDController {
     }
 
     @DeleteMapping("/ddd/{id}")
-    void deletarDDD(@PathVariable Integer id){
+    void deletar(@PathVariable Integer id){
         repositorio.deleteById(id);
     }
 }

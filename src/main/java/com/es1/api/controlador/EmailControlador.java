@@ -20,7 +20,7 @@ public class EmailControlador {
     }
 
     @PostMapping("/email")
-    Email novoEmail(@RequestBody Email novoEmail) {
+    Email novo(@RequestBody Email novoEmail) {
         return repositorio.save(novoEmail);
     }
 
@@ -31,7 +31,7 @@ public class EmailControlador {
     }
 
     @PutMapping("/email/{id}")
-    Email substituirEmail(@RequestBody Email novoEmail, @PathVariable Integer id){
+    Email substituir(@RequestBody Email novoEmail, @PathVariable Integer id){
         return repositorio.findById(id)
                 .map(email -> {
                     email.setEmail(novoEmail.getEmail());
@@ -44,7 +44,7 @@ public class EmailControlador {
     }
 
     @DeleteMapping("/email/{id}")
-    void deletarEmail(@PathVariable Integer id) {
+    void deletar(@PathVariable Integer id) {
         repositorio.deleteById(id);
     }
 }

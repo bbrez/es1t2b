@@ -20,7 +20,7 @@ public class MarcaControlador {
     }
 
     @PostMapping("/marca")
-    Marca novaMarca(@RequestBody Marca novaMarca){
+    Marca nova(@RequestBody Marca novaMarca){
         return repositorio.save(novaMarca);
     }
 
@@ -31,7 +31,7 @@ public class MarcaControlador {
     }
 
     @PutMapping("/marca/{id}")
-    Marca substituirMarca(@RequestBody Marca novaMarca, @PathVariable Integer id) {
+    Marca substituir(@RequestBody Marca novaMarca, @PathVariable Integer id) {
         return repositorio.findById(id)
                 .map(marca -> {
                     marca.setNomeMarca(novaMarca.getNomeMarca());
