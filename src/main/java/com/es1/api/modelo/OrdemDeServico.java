@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -13,4 +14,6 @@ public class OrdemDeServico {
     private @ManyToOne(cascade = CascadeType.MERGE) Cliente cliente;
     private @ManyToOne(cascade = CascadeType.MERGE) Veiculo veiculo;
     private @ManyToOne(cascade = CascadeType.MERGE) EstadoOS estado;
+    private @OneToMany(mappedBy = "ordemDeServico") List<ItemProduto> produtoList;
+    private @OneToMany(mappedBy = "ordemDeServico") List<Servico> servicoList;
 }
