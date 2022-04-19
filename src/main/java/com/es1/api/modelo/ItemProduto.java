@@ -1,5 +1,7 @@
 package com.es1.api.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,4 +13,9 @@ public class ItemProduto {
     private @Column(nullable = false) Integer quantidadeProduto;
     private @ManyToOne(cascade = CascadeType.MERGE) OrdemDeServico ordemDeServico;
     private @ManyToOne(cascade = CascadeType.MERGE) Produto produto;
+
+    @JsonManagedReference
+    public OrdemDeServico getOrdemDeServico() {
+        return ordemDeServico;
+    }
 }

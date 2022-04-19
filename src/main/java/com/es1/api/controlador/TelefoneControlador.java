@@ -35,8 +35,6 @@ public class TelefoneControlador {
         return repositorio.findById(id)
                 .map(telefone -> {
                     telefone.setNumeroTelefone(novoTelefone.getNumeroTelefone());
-                    telefone.setDdd(novoTelefone.getDdd());
-                    telefone.setDdi(novoTelefone.getDdi());
                     telefone.setCliente(novoTelefone.getCliente());
                     return telefone;
                 }).orElseGet(() -> {
