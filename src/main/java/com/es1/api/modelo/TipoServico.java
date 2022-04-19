@@ -9,4 +9,5 @@ import javax.persistence.*;
 public class TipoServico {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer idTipoServico;
     private @Column(nullable = false) String nomeTipoServico;
+    private @Column(nullable = false) Float valorMaoDeObra;
 }

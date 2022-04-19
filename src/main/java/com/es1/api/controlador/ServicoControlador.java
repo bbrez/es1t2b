@@ -34,7 +34,6 @@ public class ServicoControlador {
     Servico substituirServico(@RequestBody Servico novoServico, @PathVariable Integer id){
         return repositorio.findById(id)
                 .map(servico -> {
-                    servico.setValorMaoDeObra(novoServico.getValorMaoDeObra());
                     servico.setTipoServico(novoServico.getTipoServico());
                     servico.setOrdemDeServico(novoServico.getOrdemDeServico());
                     return repositorio.save(servico);

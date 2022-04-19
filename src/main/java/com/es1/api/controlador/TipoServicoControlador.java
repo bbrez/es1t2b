@@ -35,6 +35,7 @@ public class TipoServicoControlador {
         return repositorio.findById(id)
                 .map(tipoServico -> {
                             tipoServico.setNomeTipoServico(novoTipoServico.getNomeTipoServico());
+                            tipoServico.setValorMaoDeObra(novoTipoServico.getValorMaoDeObra());
                             return repositorio.save(tipoServico);
                         }
                 ).orElseGet(() -> {
